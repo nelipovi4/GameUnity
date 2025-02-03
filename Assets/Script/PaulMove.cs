@@ -6,11 +6,6 @@ public class PaulMove : MonoBehaviour
         float degAD = 0f, degWS = 0f;
         bool w = false, a = false, s = false, d = false;
 
-    
-    private void Start() {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-    }
-
     private void Update() {
         if(Input.GetKey("w")){
             w = true;
@@ -44,25 +39,27 @@ public class PaulMove : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (a && degAD <= 12){
-            degAD += 0.3f;
+        if (a && degAD <= 13){
+            degAD += 0.5f;
             transform.rotation = Quaternion.Euler(degWS, 0, degAD);
         }
-        if (d && degAD >= -12){
-            degAD -= 0.3f;
-            transform.rotation = Quaternion.Euler(degWS, 0, degAD);
-        }
-
-        if (w && degWS <= 12){
-            degWS += 0.3f;
+        if (d && degAD >= -13){
+            degAD -= 0.5f;
             transform.rotation = Quaternion.Euler(degWS, 0, degAD);
         }
 
-        if (s && degWS >= -12){
-            degWS -= 0.3f;
+        if (w && degWS <= 13){
+            degWS += 0.5f;
+            transform.rotation = Quaternion.Euler(degWS, 0, degAD);
+        }
+
+        if (s && degWS >= -13){
+            degWS -= 0.5f;
             transform.rotation = Quaternion.Euler(degWS, 0, degAD);
         }
 }
+
+
 
     
 }

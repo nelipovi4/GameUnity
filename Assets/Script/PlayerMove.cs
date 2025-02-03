@@ -1,26 +1,22 @@
-using UnityEngine.SceneManagement;
+
 using UnityEngine;
+
 
 public class PlayerMove : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameManager gm;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
     if(rb.transform.position.y <= -30){
-            EndGame();
+            gm.EndGame();
         }
     }
 
-    public void EndGame(){
-        Invoke("Restart", 2f);
-    }
 
-    void Restart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }
